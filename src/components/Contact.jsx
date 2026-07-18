@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Send } from 'lucide-react';
+import { Phone, Mail, Send, CheckCircle2 } from 'lucide-react';
 import './components.css';
 
 const Contact = () => {
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    setTimeout(() => {
+      setStatus('sent');
+      e.target.reset();
+      setTimeout(() => setStatus(''), 5000);
+    }, 1500);
+  };
+
   return (
     <section className="container section-padding">
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -36,13 +48,13 @@ const Contact = () => {
 
         <motion.div
           className="glass-panel"
-          style={{ padding: '3rem' }}
+          style={{ padding: '3rem', position: 'relative' }}
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div>
               <input type="text" className="input-field" placeholder="Your Name" required />
             </div>
@@ -52,9 +64,20 @@ const Contact = () => {
             <div>
               <textarea className="input-field" placeholder="Tell me about your project" required></textarea>
             </div>
-            <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }}>
-              Send Message <Send size={18} />
+            <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start' }} disabled={status === 'sending'}>
+              {status === 'sending' ? 'Sending...' : (
+                <>Send Message <Send size={18} /></>
+              )}
             </button>
+            {status === 'sent' && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }} 
+                animate={{ opacity: 1, y: 0 }}
+                style={{ color: '#10B981', display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '1rem' }}
+              >
+                <CheckCircle2 size={20} /> Message sent successfully! I'll get back to you soon.
+              </motion.div>
+            )}
           </form>
         </motion.div>
       </div>
