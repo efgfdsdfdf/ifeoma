@@ -684,32 +684,42 @@
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 1rem; /* Reduce padding so content reaches edges */
+  }
+
   .hero-top-section {
-    grid-template-columns: 1fr; /* Stack title and image on very small phones so it's not squished */
-    gap: 1.5rem;
-    text-align: center;
+    grid-template-columns: 1.3fr 0.7fr; /* Force title left, image right */
+    gap: 0.5rem;
+    text-align: left;
   }
 
   .hero-titles {
-    align-items: center;
+    align-items: flex-start;
   }
   
   .hero-bottom-section {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
   }
   
   .heading-large {
-    font-size: 2rem;
+    font-size: 1.6rem; /* Slightly smaller to fit side-by-side */
   }
   
   .heading-medium {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
-    text-align: center;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .hero-badge {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
   }
 
   /* Drop to 1 column on very small screens to avoid squishing */
