@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
-        <div className="logo">Ifeoma Ezeilo</div>
+        <a href="#home" className="logo">Ifeoma Ezeilo</a>
         
         {/* Desktop Links */}
         <div className="nav-links">

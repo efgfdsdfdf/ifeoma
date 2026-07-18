@@ -23,7 +23,7 @@
   align-items: center;
 }
 
-.nav-logo {
+.logo {
   font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
@@ -481,16 +481,7 @@
   color: var(--accent-blue);
 }
 
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-main);
-  cursor: pointer;
-  z-index: 100;
-}
-
-.mobile-menu {
+.custom-hamburger {
   display: none;
 }
 
