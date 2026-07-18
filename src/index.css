@@ -22,6 +22,14 @@ body {
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
   line-height: 1.6;
+  width: 100%;
+}
+
+.app-container {
+  overflow-x: hidden;
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
